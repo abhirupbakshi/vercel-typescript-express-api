@@ -1,0 +1,83 @@
+{
+  "name": "vercel-typescript-express-api",
+  "version": "0.0.2",
+  "description": "REST API example to deploy in Vercel(Typescript, Express. MongoDB)",
+  "main": "dist/server.js",
+  "types": "dist/server.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "pre-prod": "rimraf dist && npm run build",
+    "dev": "nodemon --watch src --exec ts-node src/server.ts",
+    "predev": "npm run build",
+    "prepare:enviroment": "node scripts/dev-enviroment.cjs",
+    "format": "prettier --write \"src/**/*.(js|ts)\"",
+    "lint": "eslint src --ext .js,.ts",
+    "lint:fix": "eslint src --fix --ext .js,.ts",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "engines": {
+    "node": ">=16.18",
+    "npm": ">=8.18"
+  },
+  "dependencies": {
+    "@types/body-parser": "^1.19.2",
+    "@types/compression": "^1.7.2",
+    "@types/cors": "^2.8.12",
+    "@types/dotenv": "8.2.0",
+    "@types/express": "^4.17.15",
+    "@types/helmet": "^4.0.0",
+    "@types/mongoose": "5.11.96",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^16.18.10",
+    "@vercel/node": "2.5.6",
+    "awilix": "^8.0.0",
+    "body-parser": "^1.20.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "helmet": "^5.1.1",
+    "mongoose": "^6.5.1",
+    "morgan": "^1.10.0",
+    "nest-shared": "^0.4.56",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.47.0",
+    "@typescript-eslint/parser": "5.47.0",
+    "eslint": "^8.30.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.2",
+    "jest-cucumber": "^3.0.1",
+    "nodemon": "2.0.19",
+    "prettier": "^2.8.1",
+    "ts-node-dev": "1.1.8",
+    "typescript": "4.5.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hebertcisco/vercel-typescript-express-api.git"
+  },
+  "keywords": [
+    "vercel-typescript-express-api",
+    "node",
+    "mongo",
+    "express",
+    "javascript",
+    "server"
+  ],
+  "author": "Hebert F. Barros",
+  "bugs": {
+    "url": "https://github.com/hebertcisco/vercel-typescript-express-api/issues"
+  },
+  "homepage": "https://github.com/hebertcisco/vercel-typescript-express-api#readme"
+}

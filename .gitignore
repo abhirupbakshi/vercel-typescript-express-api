@@ -1,0 +1,10 @@
+node_modules
+node_modules
+.vercel
+.bin
+bin
+yarn-error.log
+.env
+dist
+.idea
+!/src/modules/product/infra/database/repositories/implementations/product.repository.ts
